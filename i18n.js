@@ -29,6 +29,12 @@ const TESTI = {
     notaZucchero: ' Lo zucchero rallenta il lievito, ma la dose non tiene conto di questo effetto.',
     notaFinestra: "Quando infornare: più la lievitazione è veloce, prima l'impasto inizia a perdere gas " +
                   "dopo il punto giusto. Con lievitazioni lente c'è più margine.",
+    titoloRicette: 'Ricette',
+    sottotitoloRicette: 'Ricette tratte dai disciplinari ufficiali di prodotti DOP e STG.',
+    cerca: 'Cerca per nome o ingrediente', categoria: 'Categoria', tutte: 'Tutte',
+    categorie: { pizza: 'Pizza', pane: 'Pane' },
+    nessunaRicetta: 'Nessuna ricetta corrisponde alla ricerca.', fonte: 'Fonte', tempoTotale: 'Tempo totale',
+    almeno: x => `almeno ${x}`,
   },
   en: {
     locale: 'en-GB',
@@ -57,6 +63,12 @@ const TESTI = {
     notaZucchero: ' Sugar slows the yeast down, but the amount does not account for this effect.',
     notaFinestra: 'When to bake: the faster the fermentation, the sooner the dough starts losing gas ' +
                   'after its peak. Slow fermentations leave more margin.',
+    titoloRicette: 'Recipes',
+    sottotitoloRicette: 'Recipes taken from the official specifications of PDO and TSG products.',
+    cerca: 'Search by name or ingredient', categoria: 'Category', tutte: 'All',
+    categorie: { pizza: 'Pizza', pane: 'Bread' },
+    nessunaRicetta: 'No recipe matches your search.', fonte: 'Source', tempoTotale: 'Total time',
+    almeno: x => `at least ${x}`,
   },
   fr: {
     locale: 'fr-FR',
@@ -85,6 +97,12 @@ const TESTI = {
     notaZucchero: ' Le sucre ralentit la levure, mais la dose ne tient pas compte de cet effet.',
     notaFinestra: 'Quand enfourner : plus la fermentation est rapide, plus tôt la pâte commence à perdre du gaz ' +
                   'après le bon moment. Une fermentation lente laisse plus de marge.',
+    titoloRicette: 'Recettes',
+    sottotitoloRicette: 'Recettes tirées des cahiers des charges officiels de produits AOP et STG.',
+    cerca: 'Rechercher par nom ou ingrédient', categoria: 'Catégorie', tutte: 'Toutes',
+    categorie: { pizza: 'Pizza', pane: 'Pain' },
+    nessunaRicetta: 'Aucune recette ne correspond à la recherche.', fonte: 'Source', tempoTotale: 'Durée totale',
+    almeno: x => `au moins ${x}`,
   },
   es: {
     locale: 'es-ES',
@@ -113,6 +131,12 @@ const TESTI = {
     notaZucchero: ' El azúcar ralentiza la levadura, pero la dosis no tiene en cuenta este efecto.',
     notaFinestra: 'Cuándo hornear: cuanto más rápida es la fermentación, antes empieza la masa a perder gas ' +
                   'después del punto justo. Con fermentaciones lentas hay más margen.',
+    titoloRicette: 'Recetas',
+    sottotitoloRicette: 'Recetas tomadas de los pliegos de condiciones oficiales de productos DOP y ETG.',
+    cerca: 'Buscar por nombre o ingrediente', categoria: 'Categoría', tutte: 'Todas',
+    categorie: { pizza: 'Pizza', pane: 'Pan' },
+    nessunaRicetta: 'Ninguna receta coincide con la búsqueda.', fonte: 'Fuente', tempoTotale: 'Tiempo total',
+    almeno: x => `al menos ${x}`,
   },
   de: {
     locale: 'de-DE',
@@ -141,5 +165,11 @@ const TESTI = {
     notaZucchero: ' Zucker bremst die Hefe, aber die Menge berücksichtigt diesen Effekt nicht.',
     notaFinestra: 'Wann backen: Je schneller die Gare, desto früher verliert der Teig nach dem optimalen Punkt Gas. ' +
                   'Eine langsame Gare lässt mehr Spielraum.',
+    titoloRicette: 'Rezepte',
+    sottotitoloRicette: 'Rezepte aus den offiziellen Spezifikationen von Produkten mit g.U. und g.t.S.',
+    cerca: 'Nach Name oder Zutat suchen', categoria: 'Kategorie', tutte: 'Alle',
+    categorie: { pizza: 'Pizza', pane: 'Brot' },
+    nessunaRicetta: 'Kein Rezept entspricht der Suche.', fonte: 'Quelle', tempoTotale: 'Gesamtzeit',
+    almeno: x => `mindestens ${x}`,
   },
 };

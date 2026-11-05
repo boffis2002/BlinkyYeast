@@ -8,15 +8,14 @@
   <!-- applica subito il tema scelto, prima che la pagina compaia -->
   <script>try { const t = localStorage.getItem('tema'); if (t) document.documentElement.dataset.theme = t; } catch {}</script>
 </head>
-<body>
+<body data-titolo="titoloPagina">
 <!-- fascia fissa in alto: navbar e quantità restano sempre a vista mentre si cambiano i parametri -->
 <header class="fascia">
   <nav class="navbar" data-t-aria="navigazione" aria-label="Navigazione">
     <div class="contenitore barra-nav">
       <div class="pagine">
         <a class="pagina" href="./" aria-current="page" data-t="calcolatore">Calcolatore</a>
-        <!-- la pagina delle ricette non esiste ancora -->
-        <span class="pagina" aria-disabled="true" data-t="ricette">Ricette</span>
+        <a class="pagina" href="ricette.html" data-t="ricette">Ricette</a>
       </div>
       <div class="comandi">
         <select id="lingua" data-t-aria="lingua" aria-label="Lingua">
@@ -94,6 +93,7 @@
 
 <script src="calc.js"></script>
 <script src="i18n.js"></script>
+<script src="comune.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

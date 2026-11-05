@@ -6,18 +6,6 @@ const letture = document.getElementById('letture');
 const composizione = document.getElementById('composizione');
 const dettagli = document.getElementById('dettagli');
 const finestra = document.getElementById('finestra');
-const sceltaLingua = document.getElementById('lingua');
-const pulsanteTema = document.getElementById('tema');
-
-let t = TESTI.it; // testi della lingua scelta
-
-// le preferenze restano nel browser; se lo spazio locale non è disponibile si va avanti senza
-function ricorda(chiave, valore) {
-  try { localStorage.setItem(chiave, valore); } catch {}
-}
-function ricordato(chiave) {
-  try { return localStorage.getItem(chiave); } catch { return null; }
-}
 
 const controlli = {
   positivo: v => v > 0,
@@ -108,53 +96,6 @@ function aggiorna() {
     (p.zucchero > 0 ? t.notaZucchero : '');
 }
 
-// --- lingua ---
-
-function linguaIniziale() {
-  const salvata = ricordato('lingua');
-  if (Object.hasOwn(TESTI, salvata ?? '')) return salvata;
-  const browser = (navigator.language || '').slice(0, 2);
-  return Object.hasOwn(TESTI, browser) ? browser : 'it';
-}
-
-function applicaLingua(lingua) {
-  t = TESTI[lingua];
-  sceltaLingua.value = lingua;
-  document.documentElement.lang = lingua;
-  document.title = t.titoloPagina;
-  for (const el of document.querySelectorAll('[data-t]')) el.textContent = t[el.dataset.t];
-  for (const el of document.querySelectorAll('[data-t-aria]')) el.setAttribute('aria-label', t[el.dataset.tAria]);
-  mostraTema();
-  aggiorna();
-}
-
-sceltaLingua.addEventListener('change', () => {
-  ricorda('lingua', sceltaLingua.value);
-  applicaLingua(sceltaLingua.value);
-});
-
-// --- tema chiaro/scuro: senza scelta segue il sistema (vedi style.css) ---
-
-const sistemaScuro = matchMedia('(prefers-color-scheme: dark)');
-const temaAttuale = () => document.documentElement.dataset.theme || (sistemaScuro.matches ? 'dark' : 'light');
-
-// il pulsante mostra il tema a cui si passa
-function mostraTema() {
-  const scuro = temaAttuale() === 'dark';
-  pulsanteTema.textContent = scuro ? '☀' : '☾';
-  pulsanteTema.setAttribute('aria-label', scuro ? t.temaChiaro : t.temaScuro);
-}
-
-pulsanteTema.addEventListener('click', () => {
-  const nuovo = temaAttuale() === 'dark' ? 'light' : 'dark';
-  document.documentElement.dataset.theme = nuovo;
-  ricorda('tema', nuovo);
-  mostraTema();
-});
-sistemaScuro.addEventListener('change', mostraTema);
-
-// --- eventi del modulo ---
-
 // cambiando unità del sale, converte il valore così che la quantità resti la stessa
 form.unitaSale.addEventListener('change', () => {
   const sale = leggi(form.sale);
@@ -166,4 +107,4 @@ form.unitaSale.addEventListener('change', () => {
 });
 
 form.addEventListener('input', aggiorna);
-applicaLingua(linguaIniziale());
+avviaPagina(aggiorna);
