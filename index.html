@@ -12,19 +12,23 @@
 <!-- fascia fissa in alto: le quantità restano sempre a vista mentre si cambiano i parametri -->
 <header class="fascia">
   <div class="contenitore">
-    <div class="testata">
-      <h1 data-t="titoloPagina">Calcolo lievito</h1>
+    <nav class="navbar" data-t-aria="navigazione" aria-label="Navigazione">
+      <div class="pagine">
+        <a class="pagina" href="./" aria-current="page" data-t="calcolatore">Calcolatore</a>
+        <!-- la pagina delle ricette non esiste ancora -->
+        <span class="pagina" aria-disabled="true"><span data-t="ricette">Ricette</span> <small data-t="presto">presto</small></span>
+      </div>
       <div class="comandi">
         <select id="lingua" data-t-aria="lingua" aria-label="Lingua">
-          <option value="it">Italiano</option>
-          <option value="en">English</option>
-          <option value="fr">Français</option>
-          <option value="es">Español</option>
-          <option value="de">Deutsch</option>
+          <option value="it">IT</option>
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+          <option value="es">ES</option>
+          <option value="de">DE</option>
         </select>
         <button type="button" id="tema" aria-label="Tema scuro">☾</button>
       </div>
-    </div>
+    </nav>
     <section id="risultato" data-t-aria="ricetta" aria-label="La tua ricetta" aria-live="polite">
       <p id="titolo" class="sottotitolo"></p>
       <div id="letture" class="letture"></div>
@@ -35,6 +39,7 @@
 </header>
 
 <main class="contenitore">
+  <h1 data-t="titoloPagina">Calcolo lievito</h1>
   <p class="nota" data-t="sottotitolo">Farina, acqua, sale e lievito per il tuo impasto. Valori indicativi.</p>
 
   <form id="dati" autocomplete="off">

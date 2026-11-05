@@ -76,9 +76,33 @@ body {
   padding: 12px 0 14px;
 }
 
-.testata { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-h1 { margin: 0; font-size: 1.1rem; font-weight: 600; letter-spacing: .01em; }
-.comandi { display: flex; gap: 6px; }
+.navbar { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.pagine, .comandi { display: flex; align-items: center; gap: 4px; }
+.pagina {
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  white-space: nowrap;
+}
+a.pagina:hover { color: var(--fg); }
+.pagina[aria-current="page"] { color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.pagina[aria-disabled="true"] { cursor: default; opacity: .7; }
+.pagina small {
+  margin-left: 2px;
+  padding: 1px 5px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+/* sul telefono la navbar deve stare in una riga: la voce resta in grigio e non cliccabile */
+@media (max-width: 480px) {
+  .pagina small { display: none; }
+}
 
 .sottotitolo { margin: 10px 0 8px; color: var(--muted); font-size: .85rem; }
 
@@ -125,7 +149,8 @@ h1 { margin: 0; font-size: 1.1rem; font-weight: 600; letter-spacing: .01em; }
 
 /* --- parametri --- */
 
-main { padding-top: 16px; padding-bottom: 40px; }
+main { padding-top: 20px; padding-bottom: 40px; }
+h1 { margin: 0 0 4px; font-size: 1.5rem; font-weight: 650; letter-spacing: -.01em; }
 .nota { color: var(--muted); margin: 0 0 16px; }
 
 form { display: grid; gap: 16px 32px; }
