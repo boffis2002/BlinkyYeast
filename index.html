@@ -9,14 +9,14 @@
   <script>try { const t = localStorage.getItem('tema'); if (t) document.documentElement.dataset.theme = t; } catch {}</script>
 </head>
 <body>
-<!-- fascia fissa in alto: le quantità restano sempre a vista mentre si cambiano i parametri -->
+<!-- fascia fissa in alto: navbar e quantità restano sempre a vista mentre si cambiano i parametri -->
 <header class="fascia">
-  <div class="contenitore">
-    <nav class="navbar" data-t-aria="navigazione" aria-label="Navigazione">
+  <nav class="navbar" data-t-aria="navigazione" aria-label="Navigazione">
+    <div class="contenitore barra-nav">
       <div class="pagine">
         <a class="pagina" href="./" aria-current="page" data-t="calcolatore">Calcolatore</a>
         <!-- la pagina delle ricette non esiste ancora -->
-        <span class="pagina" aria-disabled="true"><span data-t="ricette">Ricette</span> <small data-t="presto">presto</small></span>
+        <span class="pagina" aria-disabled="true" data-t="ricette">Ricette</span>
       </div>
       <div class="comandi">
         <select id="lingua" data-t-aria="lingua" aria-label="Lingua">
@@ -28,7 +28,9 @@
         </select>
         <button type="button" id="tema" aria-label="Tema scuro">☾</button>
       </div>
-    </nav>
+    </div>
+  </nav>
+  <div class="contenitore">
     <section id="risultato" data-t-aria="ricetta" aria-label="La tua ricetta" aria-live="polite">
       <p id="titolo" class="sottotitolo"></p>
       <div id="letture" class="letture"></div>

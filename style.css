@@ -5,6 +5,12 @@
   --muted: #5d6673;
   --line: #dfe3e8;
   --accent: #1d5bd8;
+  /* navbar: barra scura a sé, distinta dalla pagina in entrambi i temi */
+  --nav-bg: #161b22;
+  --nav-fg: #e6e9ee;
+  --nav-muted: #98a1ad;
+  --nav-line: #2f3742;
+  --nav-accent: #8fb4ff;
   --error: #c62828;
   /* un colore per ingrediente: riquadri e barra di composizione */
   --c-farina: #b8c0cc;
@@ -26,6 +32,10 @@
     --muted: #98a1ad;
     --line: #2a313b;
     --accent: #6ea0ff;
+    --nav-bg: #07090c;
+    --nav-muted: #8a939f;
+    --nav-line: #262d36;
+    --nav-accent: #6ea0ff;
     --error: #ff6b6b;
     --c-farina: #5a6472;
     --c-acqua: #4f86e0;
@@ -44,6 +54,10 @@
   --muted: #98a1ad;
   --line: #2a313b;
   --accent: #6ea0ff;
+  --nav-bg: #07090c;
+  --nav-muted: #8a939f;
+  --nav-line: #262d36;
+  --nav-accent: #6ea0ff;
   --error: #ff6b6b;
   --c-farina: #5a6472;
   --c-acqua: #4f86e0;
@@ -73,38 +87,32 @@ body {
   z-index: 1;
   background: var(--card);
   border-bottom: 1px solid var(--line);
-  padding: 12px 0 14px;
+  padding-bottom: 14px;
+  box-shadow: 0 6px 16px -12px rgb(0 0 0 / .35);
 }
 
-.navbar { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.navbar {
+  background: var(--nav-bg);
+  color: var(--nav-fg);
+  border-bottom: 1px solid var(--nav-line);
+  color-scheme: dark; /* menu e pulsanti nativi scuri anche nel tema chiaro */
+}
+.barra-nav { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding-block: 8px; }
 .pagine, .comandi { display: flex; align-items: center; gap: 4px; }
 .pagina {
   padding: 5px 10px;
   border-radius: 6px;
   font-weight: 600;
-  color: var(--muted);
+  color: var(--nav-muted);
   text-decoration: none;
   white-space: nowrap;
 }
-a.pagina:hover { color: var(--fg); }
-.pagina[aria-current="page"] { color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
-.pagina[aria-disabled="true"] { cursor: default; opacity: .7; }
-.pagina small {
-  margin-left: 2px;
-  padding: 1px 5px;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  font-size: .62rem;
-  font-weight: 600;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-}
-/* sul telefono la navbar deve stare in una riga: la voce resta in grigio e non cliccabile */
-@media (max-width: 480px) {
-  .pagina small { display: none; }
-}
+a.pagina:hover { color: var(--nav-fg); }
+.pagina[aria-current="page"] { color: var(--nav-accent); background: color-mix(in srgb, var(--nav-accent) 16%, transparent); }
+.pagina[aria-disabled="true"] { cursor: default; opacity: .6; }
+.navbar select, .navbar #tema { background: transparent; color: var(--nav-fg); border-color: var(--nav-line); }
 
-.sottotitolo { margin: 10px 0 8px; color: var(--muted); font-size: .85rem; }
+.sottotitolo { margin: 14px 0 8px; color: var(--muted); font-size: .85rem; }
 
 .letture {
   display: grid;
