@@ -114,7 +114,7 @@ body {
   white-space: nowrap;
 }
 a.pagina:hover { color: var(--nav-fg); }
-.pagina[aria-current="page"] { color: var(--nav-accent); background: color-mix(in srgb, var(--nav-accent) 16%, transparent); }
+.pagina[aria-current] { color: var(--nav-accent); background: color-mix(in srgb, var(--nav-accent) 16%, transparent); }
 .pagina[aria-disabled="true"] { cursor: default; opacity: .6; }
 .navbar select, .navbar #tema { background: transparent; color: var(--nav-fg); border-color: var(--nav-line); }
 
@@ -260,6 +260,14 @@ input[aria-invalid="true"] { border-color: var(--error); outline-color: var(--er
   color: var(--c);
 }
 .card h2 { margin: 0; font-size: 1.1rem; }
+/* tutta la card porta alla ricetta; il link alla fonte resta cliccabile sopra */
+.card { position: relative; }
+.card h2 a { color: inherit; text-decoration: none; }
+.card h2 a::after { content: ""; position: absolute; inset: 0; }
+.card:hover h2 a { color: var(--accent); }
+.card h2 a:focus-visible { outline: none; }
+.card:has(h2 a:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+.card-dati a { position: relative; z-index: 1; }
 .card-descrizione { margin: 0; color: var(--muted); font-size: .88rem; }
 .card-ingredienti { display: flex; flex-wrap: wrap; gap: 4px; margin: 0; padding: 0; list-style: none; }
 .card-ingredienti li { padding: 2px 8px; border: 1px solid var(--line); border-radius: 999px; background: var(--bg); font-size: .75rem; }
@@ -275,3 +283,42 @@ input[aria-invalid="true"] { border-color: var(--error); outline-color: var(--er
 .card-dati dt { color: var(--muted); }
 .card-dati dd { margin: 0; }
 .card-dati a { color: var(--accent); }
+
+/* --- pagina di una ricetta --- */
+
+.indietro { display: inline-block; margin-bottom: 16px; color: var(--accent); text-decoration: none; font-weight: 600; font-size: .9rem; }
+.indietro:hover { text-decoration: underline; }
+.ricetta-dati { max-width: 520px; margin-bottom: 24px; padding-top: 0; border-top: 0; }
+
+.ricetta-corpo { display: grid; gap: 24px 40px; }
+@media (min-width: 760px) {
+  .ricetta-corpo { grid-template-columns: 340px 1fr; align-items: start; }
+  .porzioni { position: sticky; top: 64px; }
+}
+.ricetta-corpo h2 { margin: 0 0 8px; font-size: 1.1rem; }
+
+.porzioni { padding: 16px 18px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; }
+.porzioni form { margin-bottom: 4px; }
+.porzioni .nota { margin: 8px 0 0; font-size: .8rem; }
+.porzioni h3 {
+  margin: 14px 0 2px;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.tabella-dosi { width: 100%; border-collapse: collapse; }
+.tabella-dosi th, .tabella-dosi td { padding: 6px 0; border-bottom: 1px solid var(--line); vertical-align: baseline; }
+.tabella-dosi th { text-align: left; font-weight: 500; }
+.tabella-dosi td {
+  text-align: right;
+  white-space: nowrap;
+  font-family: var(--mono);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.passi { margin: 0; padding-left: 1.4em; }
+.passi li { padding: 6px 0 6px 4px; line-height: 1.55; }
+.passi li::marker { color: var(--accent); font-family: var(--mono); font-weight: 600; }

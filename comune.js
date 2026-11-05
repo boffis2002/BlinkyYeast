@@ -15,6 +15,8 @@ function ricordato(chiave) {
 
 // --- lingua ---
 
+const lingua = () => document.documentElement.lang;
+
 function linguaIniziale() {
   const salvata = ricordato('lingua');
   if (Object.hasOwn(TESTI, salvata ?? '')) return salvata;
@@ -42,6 +44,19 @@ function avviaPagina(aggiornaPagina) {
     applicaLingua(sceltaLingua.value);
   });
   applicaLingua(linguaIniziale());
+}
+
+// --- durate delle ricette (minuti → "3 h 40 min") ---
+
+function durata(minuti) {
+  const h = Math.floor(minuti / 60);
+  const m = minuti % 60;
+  return [h && `${h} h`, m && `${m} min`].filter(Boolean).join(' ');
+}
+
+function tempo({ min, max, almeno }) {
+  if (almeno) return t.almeno(durata(min));
+  return max ? `${durata(min)} – ${durata(max)}` : durata(min);
 }
 
 // --- tema chiaro/scuro: senza scelta segue il sistema (vedi style.css) ---

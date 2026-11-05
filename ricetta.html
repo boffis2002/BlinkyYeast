@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ricette</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- applica subito il tema scelto, prima che la pagina compaia -->
+  <script>try { const t = localStorage.getItem('tema'); if (t) document.documentElement.dataset.theme = t; } catch {}</script>
+</head>
+<body data-titolo="titoloRicette">
+<header class="testata">
+  <nav class="navbar" data-t-aria="navigazione" aria-label="Navigazione">
+    <div class="contenitore barra-nav">
+      <div class="pagine">
+        <a class="pagina" href="./" data-t="calcolatore">Calcolatore</a>
+        <a class="pagina" href="ricette.html" aria-current="true" data-t="ricette">Ricette</a>
+      </div>
+      <div class="comandi">
+        <select id="lingua" data-t-aria="lingua" aria-label="Lingua">
+          <option value="it">IT</option>
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+          <option value="es">ES</option>
+          <option value="de">DE</option>
+        </select>
+        <button type="button" id="tema" aria-label="Tema scuro">☾</button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="contenitore">
+  <a class="indietro" href="ricette.html" data-t="tutteLeRicette">← Tutte le ricette</a>
+
+  <article id="ricetta" hidden>
+    <p id="categoria" class="card-categoria"></p>
+    <h1 id="nome"></h1>
+    <p id="descrizione" class="nota"></p>
+    <dl id="dati" class="card-dati ricetta-dati"></dl>
+
+    <div class="ricetta-corpo">
+      <!-- calcolatore: le dosi del disciplinare scalate sul peso d'impasto scelto -->
+      <section class="porzioni" aria-live="polite">
+        <h2 data-t="ingredientiTitolo">Ingredienti</h2>
+        <form id="porzioni" autocomplete="off">
+          <label><span data-t="numeroPezzi">Numero di pezzi</span>
+            <span><input name="numero" inputmode="numeric"></span></label>
+          <label><span data-t="pesoPezzo">Peso dell'impasto per pezzo</span>
+            <span><input name="peso" inputmode="decimal"> g</span></label>
+        </form>
+        <p id="notaPezzi" class="nota"></p>
+        <p id="totale" class="sottotitolo"></p>
+        <div id="dosi"></div>
+        <p id="notaDosi" class="nota"></p>
+      </section>
+
+      <section>
+        <h2 data-t="procedimento">Procedimento</h2>
+        <ol id="passi" class="passi"></ol>
+      </section>
+    </div>
+  </article>
+
+  <p id="nonTrovata" class="nota" data-t="ricettaNonTrovata" hidden>Ricetta non trovata.</p>
+</main>
+
+<script src="i18n.js"></script>
+<script src="ricette.js"></script>
+<script src="comune.js"></script>
+<script src="pagina-ricetta.js"></script>
+</body>
+</html>

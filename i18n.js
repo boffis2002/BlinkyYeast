@@ -35,6 +35,9 @@ const TESTI = {
     categorie: { pizza: 'Pizza', pane: 'Pane' },
     nessunaRicetta: 'Nessuna ricetta corrisponde alla ricerca.', fonte: 'Fonte', tempoTotale: 'Tempo totale',
     almeno: x => `almeno ${x}`,
+    tutteLeRicette: "← Tutte le ricette", ingredientiTitolo: "Ingredienti", procedimento: "Procedimento",
+    numeroPezzi: "Numero di pezzi", pesoPezzo: "Peso dell'impasto per pezzo",
+    impastoTotale: x => `Impasto totale: ${x} g`, ricettaNonTrovata: "Ricetta non trovata.",
   },
   en: {
     locale: 'en-GB',
@@ -69,6 +72,9 @@ const TESTI = {
     categorie: { pizza: 'Pizza', pane: 'Bread' },
     nessunaRicetta: 'No recipe matches your search.', fonte: 'Source', tempoTotale: 'Total time',
     almeno: x => `at least ${x}`,
+    tutteLeRicette: "← All recipes", ingredientiTitolo: "Ingredients", procedimento: "Method",
+    numeroPezzi: "Number of pieces", pesoPezzo: "Dough weight per piece",
+    impastoTotale: x => `Total dough: ${x} g`, ricettaNonTrovata: "Recipe not found.",
   },
   fr: {
     locale: 'fr-FR',
@@ -103,6 +109,9 @@ const TESTI = {
     categorie: { pizza: 'Pizza', pane: 'Pain' },
     nessunaRicetta: 'Aucune recette ne correspond à la recherche.', fonte: 'Source', tempoTotale: 'Durée totale',
     almeno: x => `au moins ${x}`,
+    tutteLeRicette: "← Toutes les recettes", ingredientiTitolo: "Ingrédients", procedimento: "Préparation",
+    numeroPezzi: "Nombre de pièces", pesoPezzo: "Poids de pâte par pièce",
+    impastoTotale: x => `Pâte totale : ${x} g`, ricettaNonTrovata: "Recette introuvable.",
   },
   es: {
     locale: 'es-ES',
@@ -137,6 +146,9 @@ const TESTI = {
     categorie: { pizza: 'Pizza', pane: 'Pan' },
     nessunaRicetta: 'Ninguna receta coincide con la búsqueda.', fonte: 'Fuente', tempoTotale: 'Tiempo total',
     almeno: x => `al menos ${x}`,
+    tutteLeRicette: "← Todas las recetas", ingredientiTitolo: "Ingredientes", procedimento: "Preparación",
+    numeroPezzi: "Número de piezas", pesoPezzo: "Peso de masa por pieza",
+    impastoTotale: x => `Masa total: ${x} g`, ricettaNonTrovata: "Receta no encontrada.",
   },
   de: {
     locale: 'de-DE',
@@ -171,5 +183,8 @@ const TESTI = {
     categorie: { pizza: 'Pizza', pane: 'Brot' },
     nessunaRicetta: 'Kein Rezept entspricht der Suche.', fonte: 'Quelle', tempoTotale: 'Gesamtzeit',
     almeno: x => `mindestens ${x}`,
+    tutteLeRicette: "← Alle Rezepte", ingredientiTitolo: "Zutaten", procedimento: "Zubereitung",
+    numeroPezzi: "Anzahl der Stücke", pesoPezzo: "Teiggewicht pro Stück",
+    impastoTotale: x => `Teig gesamt: ${x} g`, ricettaNonTrovata: "Rezept nicht gefunden.",
   },
 };

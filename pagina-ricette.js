@@ -17,21 +17,8 @@ const DISEGNI = {
         'stroke-width="3" stroke-linecap="round"/></svg>',
 };
 
-const lingua = () => document.documentElement.lang;
-
 // minuscolo e senza accenti, così "semola" trova anche "sémola"
 const normalizza = s => s.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
-
-function durata(minuti) {
-  const h = Math.floor(minuti / 60);
-  const m = minuti % 60;
-  return [h && `${h} h`, m && `${m} min`].filter(Boolean).join(' ');
-}
-
-function tempo({ min, max, almeno }) {
-  if (almeno) return t.almeno(durata(min));
-  return max ? `${durata(min)} – ${durata(max)}` : durata(min);
-}
 
 const nomiIngredienti = r => r.ingredienti.map(chiave => INGREDIENTI[chiave][lingua()]);
 
@@ -44,7 +31,7 @@ function card(r) {
     <div class="card-immagine">${immagine}</div>
     <div class="card-corpo">
       <p class="card-categoria">${t.categorie[r.categoria]}</p>
-      <h2>${r.titolo[lingua()]}</h2>
+      <h2><a href="ricetta.html?id=${r.id}">${r.titolo[lingua()]}</a></h2>
       <p class="card-descrizione">${r.descrizione[lingua()]}</p>
       <ul class="card-ingredienti">${nomiIngredienti(r).map(nome => `<li>${nome}</li>`).join('')}</ul>
       <dl class="card-dati">
