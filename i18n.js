@@ -27,6 +27,8 @@ const TESTI = {
                             'quindi la dose è quella al limite e non è affidabile.',
     notaMadre: ' Con il lievito madre ore e temperatura non cambiano la dose.',
     notaZucchero: ' Lo zucchero rallenta il lievito, ma la dose non tiene conto di questo effetto.',
+    notaFinestra: "Quando infornare: più la lievitazione è veloce, prima l'impasto inizia a perdere gas " +
+                  "dopo il punto giusto. Con lievitazioni lente c'è più margine.",
   },
   en: {
     locale: 'en-GB',
@@ -53,6 +55,8 @@ const TESTI = {
                             'so the amount is the boundary value and is not reliable.',
     notaMadre: ' With a sourdough starter, time and temperature do not change the amount.',
     notaZucchero: ' Sugar slows the yeast down, but the amount does not account for this effect.',
+    notaFinestra: 'When to bake: the faster the fermentation, the sooner the dough starts losing gas ' +
+                  'after its peak. Slow fermentations leave more margin.',
   },
   fr: {
     locale: 'fr-FR',
@@ -79,6 +83,8 @@ const TESTI = {
                             "la dose est donc la valeur limite et n'est pas fiable.",
     notaMadre: ' Avec le levain, la durée et la température ne changent pas la dose.',
     notaZucchero: ' Le sucre ralentit la levure, mais la dose ne tient pas compte de cet effet.',
+    notaFinestra: 'Quand enfourner : plus la fermentation est rapide, plus tôt la pâte commence à perdre du gaz ' +
+                  'après le bon moment. Une fermentation lente laisse plus de marge.',
   },
   es: {
     locale: 'es-ES',
@@ -105,6 +111,8 @@ const TESTI = {
                             'así que la dosis es la del límite y no es fiable.',
     notaMadre: ' Con masa madre, las horas y la temperatura no cambian la dosis.',
     notaZucchero: ' El azúcar ralentiza la levadura, pero la dosis no tiene en cuenta este efecto.',
+    notaFinestra: 'Cuándo hornear: cuanto más rápida es la fermentación, antes empieza la masa a perder gas ' +
+                  'después del punto justo. Con fermentaciones lentas hay más margen.',
   },
   de: {
     locale: 'de-DE',
@@ -131,5 +139,7 @@ const TESTI = {
                             'daher ist die Menge der Grenzwert und nicht zuverlässig.',
     notaMadre: ' Beim Sauerteig ändern Zeit und Temperatur die Menge nicht.',
     notaZucchero: ' Zucker bremst die Hefe, aber die Menge berücksichtigt diesen Effekt nicht.',
+    notaFinestra: 'Wann backen: Je schneller die Gare, desto früher verliert der Teig nach dem optimalen Punkt Gas. ' +
+                  'Eine langsame Gare lässt mehr Spielraum.',
   },
 };

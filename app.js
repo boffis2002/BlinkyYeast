@@ -5,6 +5,7 @@ const titolo = document.getElementById('titolo');
 const letture = document.getElementById('letture');
 const composizione = document.getElementById('composizione');
 const dettagli = document.getElementById('dettagli');
+const finestra = document.getElementById('finestra');
 const sceltaLingua = document.getElementById('lingua');
 const pulsanteTema = document.getElementById('tema');
 
@@ -75,6 +76,10 @@ function ingredienti(p, r) {
 
 function aggiorna() {
   form.querySelector('#madre').hidden = form.tipo.value !== 'madre';
+  // Nota sul momento di infornare: con il lievito fresco il tempo a cui l'impasto inizia a perdere gas
+  // dipende dalla velocità di formazione del gas; con il secco istantaneo no, e il madre non era studiato.
+  // "Impact of gas formation kinetics on dough development and bread quality" (misure al reofermentometro)
+  finestra.hidden = form.tipo.value !== 'fresco';
   const p = dati();
   if (!p) {
     titolo.innerHTML = `<span class="avviso">${t.controlla}</span>`;

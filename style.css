@@ -162,6 +162,7 @@ h1 { margin: 0 0 4px; font-size: 1.5rem; font-weight: 650; letter-spacing: -.01e
 .nota { color: var(--muted); margin: 0 0 16px; }
 
 form { display: grid; gap: 16px 32px; }
+.finestra { margin: 24px 0 0; padding-top: 12px; border-top: 1px solid var(--line); font-size: .85rem; }
 @media (min-width: 640px) {
   form { grid-template-columns: 1fr 1fr; }
 }
