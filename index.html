@@ -9,8 +9,9 @@
   <script>try { const t = localStorage.getItem('tema'); if (t) document.documentElement.dataset.theme = t; } catch {}</script>
 </head>
 <body>
-<main>
-  <header>
+<!-- fascia fissa in alto: le quantità restano sempre a vista mentre si cambiano i parametri -->
+<header class="fascia">
+  <div class="contenitore">
     <div class="testata">
       <h1 data-t="titoloPagina">Calcolo lievito</h1>
       <div class="comandi">
@@ -24,8 +25,17 @@
         <button type="button" id="tema" aria-label="Tema scuro">☾</button>
       </div>
     </div>
-    <p class="nota" data-t="sottotitolo">Farina, acqua, sale e lievito per il tuo impasto. Valori indicativi.</p>
-  </header>
+    <section id="risultato" data-t-aria="ricetta" aria-label="La tua ricetta" aria-live="polite">
+      <p id="titolo" class="sottotitolo"></p>
+      <div id="letture" class="letture"></div>
+      <div id="composizione" class="composizione" aria-hidden="true"></div>
+      <p id="dettagli" class="nota"></p>
+    </section>
+  </div>
+</header>
+
+<main class="contenitore">
+  <p class="nota" data-t="sottotitolo">Farina, acqua, sale e lievito per il tuo impasto. Valori indicativi.</p>
 
   <form id="dati" autocomplete="off">
     <fieldset>
@@ -71,17 +81,7 @@
       </div>
     </fieldset>
   </form>
-
-  <section id="risultato" aria-live="polite">
-    <h2 data-t="ricetta">La tua ricetta</h2>
-    <p id="titolo" class="sottotitolo"></p>
-    <table><tbody id="righe"></tbody></table>
-    <p id="dettagli" class="nota"></p>
-  </section>
 </main>
-
-<!-- solo su telefono: le quantità principali sempre a vista, tocca per andare alla ricetta -->
-<button type="button" id="barra" data-t-aria="vaiRicetta" aria-label="Vai alla ricetta"></button>
 
 <script src="calc.js"></script>
 <script src="i18n.js"></script>

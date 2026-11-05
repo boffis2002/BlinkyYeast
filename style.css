@@ -1,43 +1,56 @@
 :root {
-  --bg: #f5ede1;          /* crema */
-  --card: #fffaf3;        /* carta */
-  --fg: #3a2a1c;
-  --muted: #8a7560;
-  --accent: #9c4f1c;      /* crosta */
-  --on-accent: #fffaf3;
-  --border: #e6d7c1;
-  --error: #b3261e;
-  --shadow: rgb(80 45 15 / .35);
-  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --bg: #f6f7f9;
+  --card: #ffffff;
+  --fg: #14181f;
+  --muted: #5d6673;
+  --line: #dfe3e8;
+  --accent: #1d5bd8;
+  --error: #c62828;
+  /* un colore per ingrediente: riquadri e barra di composizione */
+  --c-farina: #b8c0cc;
+  --c-acqua: #6aa1f5;
+  --c-lievito: #e8833a;
+  --c-sale: #7b8794;
+  --c-olio: #e3c04b;
+  --c-zucchero: #d16ba5;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   color-scheme: light;
 }
 
 /* tema scuro: segue il sistema, a meno che non sia stato scelto a mano (data-theme) */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #1b1511;        /* forno di notte */
-    --card: #251d17;
-    --fg: #f1e6d6;
-    --muted: #ad9a84;
-    --accent: #e3a35e;    /* ambra */
-    --on-accent: #1b1511;
-    --border: #3b2f25;
-    --error: #ff8a7a;
-    --shadow: rgb(0 0 0 / .6);
+    --bg: #0f1217;
+    --card: #171b22;
+    --fg: #e6e9ee;
+    --muted: #98a1ad;
+    --line: #2a313b;
+    --accent: #6ea0ff;
+    --error: #ff6b6b;
+    --c-farina: #5a6472;
+    --c-acqua: #4f86e0;
+    --c-lievito: #f0954f;
+    --c-sale: #8a96a5;
+    --c-olio: #d9b84a;
+    --c-zucchero: #d77bb0;
     color-scheme: dark;
   }
 }
 
 :root[data-theme="dark"] {
-  --bg: #1b1511;
-  --card: #251d17;
-  --fg: #f1e6d6;
-  --muted: #ad9a84;
-  --accent: #e3a35e;
-  --on-accent: #1b1511;
-  --border: #3b2f25;
-  --error: #ff8a7a;
-  --shadow: rgb(0 0 0 / .6);
+  --bg: #0f1217;
+  --card: #171b22;
+  --fg: #e6e9ee;
+  --muted: #98a1ad;
+  --line: #2a313b;
+  --accent: #6ea0ff;
+  --error: #ff6b6b;
+  --c-farina: #5a6472;
+  --c-acqua: #4f86e0;
+  --c-lievito: #f0954f;
+  --c-sale: #8a96a5;
+  --c-olio: #d9b84a;
+  --c-zucchero: #d77bb0;
   color-scheme: dark;
 }
 
@@ -47,123 +60,108 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--fg);
-  font: 16px/1.5 system-ui, -apple-system, sans-serif;
+  font: 15px/1.5 system-ui, -apple-system, sans-serif;
 }
 
-main {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 32px 16px 96px; /* spazio in fondo per la barra del telefono */
-  display: grid;
-  gap: 0 32px;
-}
+.contenitore { max-width: 920px; margin: 0 auto; padding: 0 16px; }
 
-@media (min-width: 760px) {
-  main { grid-template-columns: 1fr 380px; align-items: start; padding-bottom: 48px; }
-  header { grid-column: 1 / -1; }
-  #risultato { position: sticky; top: 24px; }
-}
+/* --- fascia del risultato --- */
 
-h1, h2, legend { font-family: var(--serif); }
-
-header { margin-bottom: 24px; }
-.testata { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; }
-.comandi { display: flex; gap: 8px; }
-#tema { width: 2.6em; cursor: pointer; }
-h1 { margin: 0; font-size: 2.2rem; font-weight: 600; letter-spacing: -.01em; }
-h1::after {
-  content: "";
-  display: block;
-  width: 56px;
-  height: 3px;
-  margin-top: 10px;
-  border-radius: 2px;
-  background: var(--accent);
-}
-.nota { color: var(--muted); margin: 10px 0 0; }
-
-fieldset {
+.fascia {
+  position: sticky;
+  top: 0;
+  z-index: 1;
   background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  margin: 0 0 16px;
-  padding: 8px 18px 12px;
+  border-bottom: 1px solid var(--line);
+  padding: 12px 0 14px;
 }
-legend { font-size: 1.15rem; font-weight: 600; color: var(--accent); padding: 0 6px; }
+
+.testata { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+h1 { margin: 0; font-size: 1.1rem; font-weight: 600; letter-spacing: .01em; }
+.comandi { display: flex; gap: 6px; }
+
+.sottotitolo { margin: 10px 0 8px; color: var(--muted); font-size: .85rem; }
+
+.letture {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(68px, 1fr)); /* 4 per riga anche sul telefono */
+  gap: 8px 10px;
+}
+.lettura { display: flex; flex-direction: column; min-width: 0; }
+.lettura .nome {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.lettura .nome::before {
+  content: "";
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--c);
+}
+.lettura .valore {
+  font-family: var(--mono);
+  font-size: clamp(1.1rem, 4.6vw, 1.9rem);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.lettura .info { font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.lettura .info.avviso { font-family: inherit; color: var(--error); }
+
+/* proporzioni reali dell'impasto: ogni segmento è largo quanto il suo peso */
+.composizione { display: flex; gap: 2px; height: 8px; margin-top: 12px; border-radius: 4px; overflow: hidden; }
+.composizione span { min-width: 2px; background: var(--c); }
+
+#dettagli { margin: 8px 0 0; font-size: .8rem; }
+.avviso { color: var(--error); }
+
+/* --- parametri --- */
+
+main { padding-top: 16px; padding-bottom: 40px; }
+.nota { color: var(--muted); margin: 0 0 16px; }
+
+form { display: grid; gap: 16px 32px; }
+@media (min-width: 640px) {
+  form { grid-template-columns: 1fr 1fr; }
+}
+
+fieldset { margin: 0; padding: 0; border: 0; border-top: 1px solid var(--line); }
+legend {
+  padding: 10px 0 4px;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
 
 label {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  padding: 6px 0;
+  padding: 5px 0;
 }
-label > span { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+label > span { display: flex; align-items: center; gap: 6px; white-space: nowrap; color: var(--muted); }
+label > span:first-child { color: var(--fg); white-space: normal; }
 
 input, select, #tema {
   font: inherit;
-  color: inherit;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 6px 8px;
-}
-input { width: 5.5em; text-align: right; }
-input:focus, select:focus, #tema:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
-input[aria-invalid="true"] { border-color: var(--error); outline-color: var(--error); }
-
-/* scheda ricetta */
-#risultato {
+  color: var(--fg);
   background: var(--card);
-  border: 1px solid var(--border);
-  border-top: 6px solid var(--accent);
-  border-radius: 14px;
-  padding: 20px 22px;
-  margin-bottom: 16px;
-  box-shadow: 0 12px 30px -18px var(--shadow);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 5px 8px;
 }
-#risultato h2 { margin: 0; font-size: 1.6rem; font-weight: 600; }
-.sottotitolo { margin: 2px 0 12px; color: var(--muted); font-size: .95rem; }
-
-table { width: 100%; border-collapse: collapse; }
-th, td { padding: 10px 0; border-bottom: 1px dashed var(--border); vertical-align: baseline; }
-tr:last-child th, tr:last-child td { border-bottom: 0; }
-th { text-align: left; font-weight: 500; }
-th small { display: block; font-size: .8rem; font-weight: 400; color: var(--muted); }
-th small.avviso { color: var(--error); }
-td.g {
-  text-align: right;
-  white-space: nowrap;
-  font-family: var(--serif);
-  font-size: 1.6rem;
-  font-weight: 600;
-  font-variant-numeric: lining-nums tabular-nums;
-}
-#dettagli { padding-top: 12px; border-top: 1px solid var(--border); font-size: .85rem; }
-
-/* barra del telefono */
-#barra {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: space-around;
-  gap: 8px;
-  padding: 10px 16px;
-  border: 0;
-  background: var(--accent);
-  color: var(--on-accent);
-  font: inherit;
-  cursor: pointer;
-  box-shadow: 0 -8px 20px -12px var(--shadow);
-  transition: transform .2s;
-}
-#barra span { display: flex; flex-direction: column; align-items: center; line-height: 1.2; }
-#barra small { font-size: .72rem; opacity: .85; }
-#barra b { font-family: var(--serif); font-size: 1.15rem; font-variant-numeric: lining-nums tabular-nums; }
-#barra.nascosta { transform: translateY(110%); }
-
-@media (min-width: 760px) {
-  #barra { display: none; }
-}
+input { width: 5.5em; text-align: right; font-family: var(--mono); }
+#tema { width: 2.4em; cursor: pointer; }
+input:focus, select:focus, #tema:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; border-color: transparent; }
+input[aria-invalid="true"] { border-color: var(--error); outline-color: var(--error); }

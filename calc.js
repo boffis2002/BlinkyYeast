@@ -1,5 +1,5 @@
 // Calcolo di farina, acqua, sale e lievito per un impasto (versione web di lievito.sh).
-// Fonti e limiti di ogni valore sono descritti anche nella pagina (sezione "Fonti e limiti").
+// Le fonti di ogni valore sono citate nei commenti accanto alle costanti.
 
 // [ore di lievitazione, % di lievito fresco sulla farina a 22 °C]
 // Regola pratica ereditata da lievito.sh: non viene dalla letteratura scientifica

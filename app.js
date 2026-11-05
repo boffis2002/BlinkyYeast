@@ -1,11 +1,10 @@
 // Collega il modulo al calcolo: ricalcola a ogni modifica.
 
 const form = document.getElementById('dati');
-const risultato = document.getElementById('risultato');
 const titolo = document.getElementById('titolo');
-const righe = document.getElementById('righe');
+const letture = document.getElementById('letture');
+const composizione = document.getElementById('composizione');
 const dettagli = document.getElementById('dettagli');
-const barra = document.getElementById('barra');
 const sceltaLingua = document.getElementById('lingua');
 const pulsanteTema = document.getElementById('tema');
 
@@ -52,26 +51,25 @@ const g = (x, cifre = 0) =>
 
 const NOMI_LIEVITO = { fresco: 'lievitoFresco', secco: 'lievitoSecco' };
 
-// ingredienti come [nome, nome breve, grammi, cifre decimali, nota, classe della nota];
-// i primi quattro sono quelli mostrati nella barra del telefono
+// ingredienti come [colore (--c-…), nome, grammi, cifre decimali, nota, classe della nota]
 function ingredienti(p, r) {
   const lista = [];
   if (r.madre) {
     const acqua = r.acqua - r.madre.acqua;
-    lista.push([t.farina, t.farina, r.farina - r.madre.farina, 0, t.tot(g(r.farina))]);
+    lista.push(['farina', t.farina, r.farina - r.madre.farina, 0, t.tot(g(r.farina))]);
     lista.push(acqua >= 0
-      ? [t.acqua, t.acqua, acqua, 0, `${t.tot(g(r.acqua))}, ${g(p.idratazione, 1)}%`]
-      : [t.acqua, t.acqua, 0, 0, t.troppaAcqua, 'avviso']);
-    lista.push([t.lievitoMadre, t.lievitoBreve, r.lievito, 0, `${g(p.percentualeMadre, 1)}%`]);
+      ? ['acqua', t.acqua, acqua, 0, `${t.tot(g(r.acqua))}, ${g(p.idratazione, 1)}%`]
+      : ['acqua', t.acqua, 0, 0, t.troppaAcqua, 'avviso']);
+    lista.push(['lievito', t.lievitoMadre, r.lievito, 0, `${g(p.percentualeMadre, 1)}%`]);
   } else {
-    lista.push([t.farina, t.farina, r.farina, 0]);
-    lista.push([t.acqua, t.acqua, r.acqua, 0, `${g(p.idratazione, 1)}%`]);
-    lista.push([t[NOMI_LIEVITO[p.tipo]], t.lievitoBreve, r.lievito, 1, `${g(r.pct, 2)}%`]);
+    lista.push(['farina', t.farina, r.farina, 0, '100%']);
+    lista.push(['acqua', t.acqua, r.acqua, 0, `${g(p.idratazione, 1)}%`]);
+    lista.push(['lievito', t[NOMI_LIEVITO[p.tipo]], r.lievito, 1, `${g(r.pct, 2)}%`]);
   }
   const unita = p.unitaSale === 'gl' ? 'g/L' : '%';
-  lista.push([t.sale, t.sale, r.sale, 1, `${p.sale.toLocaleString(t.locale)} ${unita}`]);
-  if (r.olio > 0) lista.push([t.olio, t.olio, r.olio, 0, `${g(p.olio, 1)}%`]);
-  if (r.zucchero > 0) lista.push([t.zucchero, t.zucchero, r.zucchero, 0, `${g(p.zucchero, 1)}%`]);
+  lista.push(['sale', t.sale, r.sale, 1, `${p.sale.toLocaleString(t.locale)} ${unita}`]);
+  if (r.olio > 0) lista.push(['olio', t.olio, r.olio, 0, `${g(p.olio, 1)}%`]);
+  if (r.zucchero > 0) lista.push(['zucchero', t.zucchero, r.zucchero, 0, `${g(p.zucchero, 1)}%`]);
   return lista;
 }
 
@@ -79,10 +77,10 @@ function aggiorna() {
   form.querySelector('#madre').hidden = form.tipo.value !== 'madre';
   const p = dati();
   if (!p) {
-    titolo.textContent = t.controlla;
-    righe.innerHTML = '';
+    titolo.innerHTML = `<span class="avviso">${t.controlla}</span>`;
+    letture.innerHTML = '';
+    composizione.innerHTML = '';
     dettagli.textContent = '';
-    barra.innerHTML = `<span>${t.controlla}</span>`;
     return;
   }
 
@@ -90,11 +88,12 @@ function aggiorna() {
   titolo.textContent = t.per(p.panetti, g(p.peso), g(r.totale));
 
   const lista = ingredienti(p, r);
-  righe.innerHTML = lista.map(([nome, , grammi, cifre, info, classe = '']) =>
-    `<tr><th scope="row">${nome}${info ? `<small class="${classe}">${info}</small>` : ''}</th>` +
-    `<td class="g">${g(grammi, cifre)} g</td></tr>`).join('');
-  barra.innerHTML = lista.slice(0, 4).map(([, breve, grammi, cifre]) =>
-    `<span><small>${breve}</small><b>${g(grammi, cifre)} g</b></span>`).join('');
+  letture.innerHTML = lista.map(([colore, nome, grammi, cifre, info, classe = '']) =>
+    `<div class="lettura" style="--c: var(--c-${colore})">` +
+    `<span class="nome">${nome}</span><span class="valore">${g(grammi, cifre)} g</span>` +
+    `<span class="info ${classe}">${info}</span></div>`).join('');
+  composizione.innerHTML = lista.map(([colore, , grammi]) =>
+    `<span style="flex-grow: ${grammi}; --c: var(--c-${colore})"></span>`).join('');
 
   const fuoriTabella = !r.madre && (r.ore < TABELLA[0][0] || r.ore > TABELLA[TABELLA.length - 1][0]);
   dettagli.textContent = t.oreA(g(p.ore, 1), g(p.temp, 1)) +
@@ -149,7 +148,7 @@ pulsanteTema.addEventListener('click', () => {
 });
 sistemaScuro.addEventListener('change', mostraTema);
 
-// --- eventi del modulo e barra ---
+// --- eventi del modulo ---
 
 // cambiando unità del sale, converte il valore così che la quantità resti la stessa
 form.unitaSale.addEventListener('change', () => {
@@ -160,11 +159,6 @@ form.unitaSale.addEventListener('change', () => {
   form.sale.value = nuovo.toLocaleString(t.locale, { maximumFractionDigits: 2, useGrouping: false });
   aggiorna();
 });
-
-// la barra porta alla ricetta e sparisce quando la ricetta è già a vista
-barra.addEventListener('click', () => risultato.scrollIntoView({ behavior: 'smooth' }));
-new IntersectionObserver(([voce]) => barra.classList.toggle('nascosta', voce.isIntersecting))
-  .observe(risultato);
 
 form.addEventListener('input', aggiorna);
 applicaLingua(linguaIniziale());
