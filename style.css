@@ -1,0 +1,95 @@
+:root {
+  --bg: #faf7f2;
+  --card: #fff;
+  --fg: #2b2620;
+  --muted: #7a6f63;
+  --accent: #a85a17;
+  --border: #e6ddd1;
+  --error: #c0392b;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1a17;
+    --card: #26231f;
+    --fg: #eee6db;
+    --muted: #a39888;
+    --accent: #e0954f;
+    --border: #3a352e;
+    --error: #ff6b5b;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 16px/1.5 system-ui, -apple-system, sans-serif;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+  display: grid;
+  gap: 0 24px;
+}
+
+@media (min-width: 760px) {
+  main { grid-template-columns: 1fr 340px; align-items: start; }
+  header { grid-column: 1 / -1; }
+  #fonti { grid-column: 1 / -1; }
+}
+
+header { margin-bottom: 20px; }
+h1 { margin: 0; font-size: 1.8rem; }
+.nota { color: var(--muted); margin: 4px 0 0; font-size: .9rem; }
+
+fieldset, #risultato {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin: 0 0 16px;
+}
+
+fieldset { padding: 8px 16px 12px; }
+legend { font-weight: 600; padding: 0 6px; color: var(--accent); }
+
+label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 0;
+}
+label > span { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+
+input, select {
+  font: inherit;
+  color: inherit;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 8px;
+}
+input { width: 5.5em; text-align: right; }
+input[aria-invalid="true"] { border-color: var(--error); outline-color: var(--error); }
+
+#risultato { padding: 16px; }
+#risultato h2 { font-size: 1rem; margin: 0 0 8px; }
+
+table { width: 100%; border-collapse: collapse; }
+td { padding: 6px 0; border-bottom: 1px solid var(--border); }
+td.g { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+td.info { text-align: right; padding-left: 8px; color: var(--muted); font-size: .85rem; }
+td.avviso { color: var(--error); }
+
+#fonti { margin-top: 16px; font-size: .9rem; color: var(--muted); }
+#fonti h2 { font-size: 1.1rem; color: var(--fg); margin: 0 0 4px; }
+#fonti h3 { font-size: .95rem; color: var(--accent); margin: 16px 0 4px; }
+#fonti ul { margin: 0; padding-left: 20px; }
+#fonti li { margin: 6px 0; }
+#fonti a { color: var(--accent); }
