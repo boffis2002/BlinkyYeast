@@ -5,104 +5,86 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Calcolo lievito</title>
   <link rel="stylesheet" href="style.css">
+  <!-- applica subito il tema scelto, prima che la pagina compaia -->
+  <script>try { const t = localStorage.getItem('tema'); if (t) document.documentElement.dataset.theme = t; } catch {}</script>
 </head>
 <body>
 <main>
   <header>
-    <h1>Calcolo lievito</h1>
-    <p class="nota">Farina, acqua, sale e lievito per il tuo impasto. Valori indicativi.</p>
+    <div class="testata">
+      <h1 data-t="titoloPagina">Calcolo lievito</h1>
+      <div class="comandi">
+        <select id="lingua" data-t-aria="lingua" aria-label="Lingua">
+          <option value="it">Italiano</option>
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+          <option value="es">Español</option>
+          <option value="de">Deutsch</option>
+        </select>
+        <button type="button" id="tema" aria-label="Tema scuro">☾</button>
+      </div>
+    </div>
+    <p class="nota" data-t="sottotitolo">Farina, acqua, sale e lievito per il tuo impasto. Valori indicativi.</p>
   </header>
 
   <form id="dati" autocomplete="off">
     <fieldset>
-      <legend>Panetti</legend>
-      <label>Peso di un panetto <span><input name="peso" value="250" inputmode="decimal" data-check="positivo"> g</span></label>
-      <label>Numero di panetti <span><input name="panetti" value="1" inputmode="numeric" data-check="intero"></span></label>
+      <legend data-t="panetti">Panetti</legend>
+      <label><span data-t="peso">Peso di un panetto</span> <span><input name="peso" value="250" inputmode="decimal" data-check="positivo"> g</span></label>
+      <label><span data-t="numero">Numero di panetti</span> <span><input name="panetti" value="1" inputmode="numeric" data-check="intero"></span></label>
     </fieldset>
 
     <fieldset>
-      <legend>Impasto</legend>
-      <label>Idratazione <span><input name="idratazione" value="65" inputmode="decimal" data-check="nonNegativo"> %</span></label>
-      <label>Sale
+      <legend data-t="impasto">Impasto</legend>
+      <label><span data-t="idratazione">Idratazione</span> <span><input name="idratazione" value="65" inputmode="decimal" data-check="nonNegativo"> %</span></label>
+      <label><span data-t="sale">Sale</span>
         <span>
           <input name="sale" value="50" inputmode="decimal" data-check="nonNegativo">
-          <select name="unitaSale" aria-label="Unità del sale">
-            <option value="gl">g/L acqua</option>
-            <option value="pct">% farina</option>
+          <select name="unitaSale" data-t-aria="unitaSale" aria-label="Unità del sale">
+            <option value="gl" data-t="gl">g/L acqua</option>
+            <option value="pct" data-t="pctFarina">% farina</option>
           </select>
         </span>
       </label>
-      <label>Olio / grassi <span><input name="olio" value="0" inputmode="decimal" data-check="nonNegativo"> %</span></label>
-      <label>Zucchero <span><input name="zucchero" value="0" inputmode="decimal" data-check="nonNegativo"> %</span></label>
+      <label><span data-t="olio">Olio / grassi</span> <span><input name="olio" value="0" inputmode="decimal" data-check="nonNegativo"> %</span></label>
+      <label><span data-t="zucchero">Zucchero</span> <span><input name="zucchero" value="0" inputmode="decimal" data-check="nonNegativo"> %</span></label>
     </fieldset>
 
     <fieldset>
-      <legend>Lievitazione</legend>
-      <label>Ore di lievitazione <span><input name="ore" value="8" inputmode="decimal" data-check="positivo"> h</span></label>
-      <label>Temperatura (10–35 °C) <span><input name="temp" value="22" inputmode="decimal" data-check="temperatura"> °C</span></label>
+      <legend data-t="lievitazione">Lievitazione</legend>
+      <label><span data-t="ore">Ore di lievitazione</span> <span><input name="ore" value="8" inputmode="decimal" data-check="positivo"> h</span></label>
+      <label><span data-t="temp">Temperatura (10–35 °C)</span> <span><input name="temp" value="22" inputmode="decimal" data-check="temperatura"> °C</span></label>
     </fieldset>
 
     <fieldset>
-      <legend>Lievito</legend>
-      <label>Tipo
+      <legend data-t="lievito">Lievito</legend>
+      <label><span data-t="tipo">Tipo</span>
         <select name="tipo">
-          <option value="fresco">Lievito di birra fresco</option>
-          <option value="secco">Lievito di birra secco istantaneo</option>
-          <option value="madre">Lievito madre</option>
+          <option value="fresco" data-t="fresco">Lievito di birra fresco</option>
+          <option value="secco" data-t="secco">Lievito di birra secco istantaneo</option>
+          <option value="madre" data-t="madre">Lievito madre</option>
         </select>
       </label>
       <div id="madre" hidden>
-        <label>Lievito madre <span><input name="percentualeMadre" value="25" inputmode="decimal" data-check="positivo"> % farina</span></label>
-        <label>Idratazione del madre <span><input name="idratazioneMadre" value="50" inputmode="decimal" data-check="nonNegativo"> %</span></label>
+        <label><span data-t="madre">Lievito madre</span> <span><input name="percentualeMadre" value="25" inputmode="decimal" data-check="positivo"> <span data-t="pctFarina">% farina</span></span></label>
+        <label><span data-t="idratazioneMadre">Idratazione del madre</span> <span><input name="idratazioneMadre" value="50" inputmode="decimal" data-check="nonNegativo"> %</span></label>
       </div>
     </fieldset>
   </form>
 
   <section id="risultato" aria-live="polite">
-    <h2 id="titolo"></h2>
+    <h2 data-t="ricetta">La tua ricetta</h2>
+    <p id="titolo" class="sottotitolo"></p>
     <table><tbody id="righe"></tbody></table>
     <p id="dettagli" class="nota"></p>
   </section>
-
-  <section id="fonti">
-    <h2>Fonti e limiti</h2>
-    <h3>Basato su fonti</h3>
-    <ul>
-      <li><b>Quantità degli ingredienti</b>: bilancio delle masse. Farina, acqua, sale, olio, zucchero e lievito
-        sono espressi in proporzione alla farina e la loro somma è il peso dell'impasto (calcolo esatto).</li>
-      <li><b>Effetto della temperatura</b>: modello CTMI (Rosso et al., <i>J. Theor. Biol.</i> 162, 1993) con le
-        temperature cardinali di <i>S. cerevisiae</i> misurate da
-        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3067424">Salvadó et al., <i>Appl. Environ. Microbiol.</i> 77, 2011</a>
-        (minima 2,8 °C, ottimale 32,3 °C, massima 45,4 °C: medie dei 10 ceppi studiati).
-        Le ore di lievitazione vengono convertite in ore equivalenti a 22 °C in proporzione alla velocità di crescita.
-        <br><i>Limite:</i> il modello descrive la crescita del lievito in coltura, non la produzione di gas nell'impasto,
-        e i ceppi studiati non sono lieviti da panificazione. Il campo 10–35 °C è una scelta prudenziale.</li>
-      <li><b>Lievito secco istantaneo</b>: un terzo del fresco.
-        <a href="https://www.lesaffre.com/trends-mag/what-are-the-different-forms-of-yeast/">Lesaffre</a>
-        indica una dose da 3 a 4 volte inferiore al lievito pressato.</li>
-      <li><b>Lievito madre</b>: la dose la scegli tu; il sito ricalcola solo farina e acqua da aggiungere,
-        così l'idratazione indicata è quella reale. I microrganismi del madre dipendono molto dalla temperatura
-        (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC106434">Gänzle et al., <i>Appl. Environ. Microbiol.</i> 64, 1998</a>),
-        ma non esiste un modello validato per calcolarne la dose.</li>
-    </ul>
-    <h3>Non basato su fonti scientifiche</h3>
-    <ul>
-      <li><b>Dose di lievito in base alle ore</b> (a 22 °C): è una regola pratica. Non ho trovato studi che
-        coprano lievitazioni lunghe con dosi sotto il 2% (gli studi disponibili, come Walker et al.,
-        <i>Cereal Foods World</i> 41, 1996, usano dosi del 2,5–4%).</li>
-    </ul>
-    <h3>Non coperto dal calcolo</h3>
-    <ul>
-      <li><b>Lievitazione in frigo</b>: vicino a 4 °C la crescita del lievito è quasi nulla, ma le dosi usate
-        in pratica dipendono dalla maturazione e dal tempo di raffreddamento dell'impasto, per cui non esiste
-        un modello quantitativo affidabile.</li>
-      <li><b>Zucchero e grassi</b>: entrano nel peso dell'impasto ma non correggono la dose. Lo zucchero rallenta
-        il lievito per effetto osmotico; per impasti molto dolci esistono lieviti specifici, ma non ho trovato
-        un modello affidabile per stimare quanto lievito in più serve.</li>
-    </ul>
-  </section>
 </main>
+
+<!-- solo su telefono: le quantità principali sempre a vista, tocca per andare alla ricetta -->
+<button type="button" id="barra" data-t-aria="vaiRicetta" aria-label="Vai alla ricetta"></button>
+
 <script src="calc.js"></script>
+<script src="i18n.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
