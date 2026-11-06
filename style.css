@@ -216,7 +216,7 @@ input[aria-invalid="true"] { border-color: var(--error); outline-color: var(--er
 
 /* --- pagina delle ricette --- */
 
-.testata { position: sticky; top: 0; z-index: 1; }
+.testata { position: sticky; top: 0; z-index: 2; } /* sopra i link delle fonti, che hanno z-index 1 */
 
 .ricerca { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 20px; }
 .ricerca input { flex: 1 1 240px; width: auto; padding: 8px 10px; text-align: left; font-family: inherit; }
