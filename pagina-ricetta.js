@@ -133,7 +133,7 @@ function avviaRicetta() {
   if (c) {
     // si parte dal contenitore della fonte; l'altra forma parte dalla stessa superficie
     const a = area(c);
-    porzioni.contenitori.value = 1;
+    porzioni.contenitori.value = c.numero ?? 1; // quante teglie usa la fonte (le dosi sono per una)
     porzioni.forma.value = c.forma;
     porzioni.diametro.value = c.diametro ?? Math.round(2 * Math.sqrt(a / Math.PI));
     porzioni.lunghezza.value = c.lunghezza ?? Math.round(Math.sqrt(a));

@@ -124,6 +124,7 @@ for (const [i, r] of RICETTE.entries()) {
       if (!positivo(c.lunghezza) || !positivo(c.larghezza)) errore(`${dove} › contenitore`, 'lunghezza e larghezza devono essere > 0');
     } else errore(`${dove} › contenitore`, 'forma deve essere «tondo» o «rettangolare»');
     tradotto(`${dove} › contenitore › nota`, c.nota);
+    if (c.numero !== undefined && !(Number.isInteger(c.numero) && c.numero >= 1)) errore(`${dove} › contenitore`, 'numero deve essere un intero ≥ 1');
   }
 
   // dosi: almeno un gruppo senza `da`; un gruppo con `da` deve corrispondere a un ingrediente con quantità
