@@ -1,0 +1,86 @@
+// Dettaglio della ricetta «strudel-pere-noci-wieser»: quantità, dosi, note e procedimento (vedi ricette.js per le regole).
+DETTAGLI['strudel-pere-noci-wieser'] = {
+  pezzi: {
+    numero: 2, peso: 1625,
+    nota: {
+      it: 'La ricetta è per due strudel, con rettangoli di pasta di 30 × 40 cm.',
+      en: 'The recipe makes two strudels, from 30 × 40 cm rectangles of pastry.',
+      fr: 'La recette donne deux strudels, avec des rectangles de pâte de 30 × 40 cm.',
+      es: 'La receta es para dos strudel, con rectángulos de masa de 30 × 40 cm.',
+      de: 'Das Rezept ergibt zwei Strudel aus Teigrechtecken von 30 × 40 cm.',
+    },
+  },
+  dosi: [
+    { nome: GRUPPI.pastello,
+      ingredienti: [['farinaTenero', 350], ['cacao', 50], ['burro', 50], ['acqua', 250], ['sale', 10], ['succoLimone', 10], ['rum', 10]] },
+    { nome: GRUPPI.panetto,
+      ingredienti: [['burro', 450], ['farinaTenero', 100]] },
+    { nome: GRUPPI.ripieno,
+      ingredienti: [['pere', 1200], ['zucchero', 100], ['paneTostato', 100], ['noci', 60], ['rum', 20], ['succoLimone', 50], ['cannella']] },
+  ],
+  notaDosi: {
+    it: 'Servono a parte pangrattato per la pasta e un uovo sbattuto per spennellare.',
+    en: 'You also need breadcrumbs for the pastry and a beaten egg for brushing.',
+    fr: 'Il faut aussi de la chapelure pour la pâte et un œuf battu pour dorer.',
+    es: 'Hace falta además pan rallado para la masa y un huevo batido para pintar.',
+    de: 'Zusätzlich braucht man Semmelbrösel für den Teig und ein verquirltes Ei zum Bestreichen.',
+  },
+  passi: [
+    {
+      it: 'Pastello: impastare a mano tutti gli ingredienti fino a un composto liscio, formare una palla e lasciarla riposare 20 minuti.',
+      en: 'Dough: knead all the ingredients by hand until smooth, shape a ball and rest it for 20 minutes.',
+      fr: 'Détrempe : pétrir à la main tous les ingrédients jusqu’à une pâte lisse, former une boule et la laisser reposer 20 minutes.',
+      es: 'Masa base: amasar a mano todos los ingredientes hasta que esté lisa, formar una bola y dejarla reposar 20 minutos.',
+      de: 'Grundteig: Alle Zutaten von Hand glatt kneten, zu einer Kugel formen und 20 Minuten ruhen lassen.',
+    },
+    {
+      it: 'Panetto: lavorare il burro con la farina e stenderlo in un rettangolo.',
+      en: 'Butter block: work the butter with the flour and spread it into a rectangle.',
+      fr: 'Beurrage : travailler le beurre avec la farine et l’étaler en rectangle.',
+      es: 'Bloque de mantequilla: trabajar la mantequilla con la harina y extenderla en un rectángulo.',
+      de: 'Butterplatte: Butter mit Mehl verarbeiten und zu einem Rechteck ausstreichen.',
+    },
+    {
+      it: 'Stendere il pastello, metterlo al centro del panetto e ripiegare il panetto fino a coprirlo; stendere a 2 cm e dare una piega semplice, poi far riposare 20 minuti.',
+      en: 'Roll out the dough, place it in the centre of the butter block and fold the block over to cover it; roll out to 2 cm and give a single fold, then rest for 20 minutes.',
+      fr: 'Abaisser la détrempe, la poser au centre du beurrage et replier celui-ci pour la couvrir ; abaisser à 2 cm et donner un tour simple, puis laisser reposer 20 minutes.',
+      es: 'Estirar la masa base, ponerla en el centro del bloque de mantequilla y doblar este hasta cubrirla; estirar a 2 cm y dar un pliegue sencillo; reposar 20 minutos.',
+      de: 'Den Grundteig ausrollen, in die Mitte der Butterplatte legen und diese darüberklappen; auf 2 cm ausrollen, eine einfache Tour geben und 20 Minuten ruhen lassen.',
+    },
+    {
+      it: 'Stendere ancora e dare una piega doppia; riposare 20 minuti e ripetere.',
+      en: 'Roll out again and give a double fold; rest for 20 minutes and repeat.',
+      fr: 'Abaisser à nouveau et donner un tour double ; laisser reposer 20 minutes et recommencer.',
+      es: 'Estirar de nuevo y dar un pliegue doble; reposar 20 minutos y repetir.',
+      de: 'Erneut ausrollen und eine doppelte Tour geben; 20 Minuten ruhen lassen und wiederholen.',
+    },
+    {
+      it: 'Ripieno: sbucciare le pere e tagliarle a fettine di 3–4 mm; mescolare con le mani tutti gli ingredienti del ripieno, infarinando appena la frutta.',
+      en: 'Filling: peel the pears and slice them 3–4 mm thick; mix all the filling ingredients by hand, lightly flouring the fruit.',
+      fr: 'Garniture : éplucher les poires et les couper en lamelles de 3 à 4 mm ; mélanger à la main tous les ingrédients de la garniture en farinant légèrement les fruits.',
+      es: 'Relleno: pelar las peras y cortarlas en láminas de 3–4 mm; mezclar a mano todos los ingredientes del relleno, enharinando ligeramente la fruta.',
+      de: 'Füllung: Die Birnen schälen und in 3–4 mm dünne Scheiben schneiden; alle Füllungszutaten mit den Händen mischen und das Obst leicht bemehlen.',
+    },
+    {
+      it: 'Stendere la sfoglia a 4–5 mm e ritagliare rettangoli di 30 × 40 cm.',
+      en: 'Roll the pastry out to 4–5 mm and cut 30 × 40 cm rectangles.',
+      fr: 'Abaisser le feuilletage à 4–5 mm et découper des rectangles de 30 × 40 cm.',
+      es: 'Estirar el hojaldre a 4–5 mm y cortar rectángulos de 30 × 40 cm.',
+      de: 'Den Blätterteig 4–5 mm dick ausrollen und Rechtecke von 30 × 40 cm schneiden.',
+    },
+    {
+      it: 'Spolverare la pasta di pangrattato, adagiare il ripieno al centro a salsicciotto, chiudere un lato e spennellarlo di uovo sbattuto, poi chiudere l’altro lato e spennellare tutta la superficie.',
+      en: 'Sprinkle the pastry with breadcrumbs, lay the filling in a log in the centre, close one side and brush it with beaten egg, then close the other side and brush the whole surface.',
+      fr: 'Saupoudrer la pâte de chapelure, déposer la garniture en boudin au centre, fermer un côté et le badigeonner d’œuf battu, puis fermer l’autre côté et badigeonner toute la surface.',
+      es: 'Espolvorear la masa con pan rallado, colocar el relleno en forma de rollo en el centro, cerrar un lado y pintarlo con huevo batido, luego cerrar el otro lado y pintar toda la superficie.',
+      de: 'Den Teig mit Semmelbröseln bestreuen, die Füllung als Rolle in die Mitte legen, eine Seite schließen und mit verquirltem Ei bestreichen, dann die andere Seite schließen und die ganze Oberfläche bestreichen.',
+    },
+    {
+      it: 'Cuocere a 160 °C su una teglia con carta forno per circa 70 minuti.',
+      en: 'Bake at 160 °C on a lined tray for about 70 minutes.',
+      fr: 'Cuire à 160 °C sur une plaque chemisée environ 70 minutes.',
+      es: 'Hornear a 160 °C sobre una bandeja con papel unos 70 minutos.',
+      de: 'Bei 160 °C auf einem mit Backpapier belegten Blech etwa 70 Minuten backen.',
+    },
+  ],
+};

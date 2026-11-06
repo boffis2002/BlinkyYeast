@@ -54,10 +54,20 @@ function durata(minuti) {
   return [h && `${h} h`, m && `${m} min`].filter(Boolean).join(' ');
 }
 
-function tempo({ min, max, almeno }) {
+// null quando la fonte non indica i tempi
+function tempo(intervallo) {
+  if (!intervallo) return t.nonIndicato;
+  const { min, max, almeno } = intervallo;
   if (almeno) return t.almeno(durata(min));
   return max ? `${durata(min)} – ${durata(max)}` : durata(min);
 }
+
+// --- difficoltà (1–5) e strumenti, comuni a card e pagina della ricetta ---
+
+const difficolta = n =>
+  `<span class="difficolta" role="img" aria-label="${t.difficoltaSu(n)}">${'●'.repeat(n)}${'○'.repeat(5 - n)}</span>`;
+
+const nomiStrumenti = r => r.strumenti.map(chiave => STRUMENTI[chiave][lingua()]).join(', ');
 
 // --- tema chiaro/scuro: senza scelta segue il sistema (vedi style.css) ---
 

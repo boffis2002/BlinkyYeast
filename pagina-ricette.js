@@ -15,6 +15,13 @@ const DISEGNI = {
   pane: '<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="14" width="38" height="22" rx="11" fill="none" ' +
         'stroke="currentColor" stroke-width="3"/><path d="M15 30l6-10M23 30l6-10M31 30l6-10" stroke="currentColor" ' +
         'stroke-width="3" stroke-linecap="round"/></svg>',
+  salati: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 30h36l-4 9H10z" fill="none" stroke="currentColor" ' +
+          'stroke-width="3" stroke-linejoin="round"/><path d="M10 30c2-10 26-10 28 0" fill="none" stroke="currentColor" ' +
+          'stroke-width="3"/><circle cx="19" cy="25" r="2" fill="currentColor"/><circle cx="29" cy="25" r="2" ' +
+          'fill="currentColor"/></svg>',
+  dolci: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 40V24l32-10v26z" fill="none" stroke="currentColor" ' +
+         'stroke-width="3" stroke-linejoin="round"/><path d="M8 30l32-8" stroke="currentColor" stroke-width="3"/>' +
+         '<circle cx="34" cy="10" r="3" fill="currentColor"/></svg>',
 };
 
 // minuscolo e senza accenti, così "semola" trova anche "sémola"
@@ -36,6 +43,7 @@ function card(r) {
       <ul class="card-ingredienti">${nomiIngredienti(r).map(nome => `<li>${nome}</li>`).join('')}</ul>
       <dl class="card-dati">
         <dt>${t.tempoTotale}</dt><dd>${tempo(r.tempo)}</dd>
+        <dt>${t.difficolta}</dt><dd>${difficolta(r.difficolta)}</dd>
         <dt>${t.fonte}</dt><dd><a href="${r.fonte.url}" target="_blank" rel="noopener">${r.fonte.nome}</a></dd>
       </dl>
     </div>

@@ -40,14 +40,36 @@
     <dl id="dati" class="card-dati ricetta-dati"></dl>
 
     <div class="ricetta-corpo">
-      <!-- calcolatore: le dosi del disciplinare scalate sul peso d'impasto scelto -->
+      <!-- calcolatore: le dosi della fonte scalate a pezzi o sulla superficie della teglia scelta -->
       <section class="porzioni" aria-live="polite">
         <h2 data-t="ingredientiTitolo">Ingredienti</h2>
         <form id="porzioni" autocomplete="off">
-          <label><span data-t="numeroPezzi">Numero di pezzi</span>
-            <span><input name="numero" inputmode="numeric"></span></label>
-          <label><span data-t="pesoPezzo">Peso dell'impasto per pezzo</span>
-            <span><input name="peso" inputmode="decimal"> g</span></label>
+          <fieldset id="modo" class="modo" hidden>
+            <legend class="nascosto" data-t="modo">Come la prepari</legend>
+            <label><input type="radio" name="modo" value="pezzi"><span data-t="modoPezzi">A pezzi</span></label>
+            <label><input type="radio" name="modo" value="contenitore"><span data-t="modoContenitore">In teglia o stampo</span></label>
+          </fieldset>
+          <div id="campiPezzi">
+            <label><span data-t="numeroPezzi">Numero di pezzi</span>
+              <span><input name="numero" inputmode="numeric"></span></label>
+            <label><span data-t="pesoPezzo">Peso dell'impasto per pezzo</span>
+              <span><input name="peso" inputmode="decimal"> g</span></label>
+          </div>
+          <div id="campiContenitore" hidden>
+            <label><span data-t="numeroContenitori">Numero di teglie o stampi</span>
+              <span><input name="contenitori" inputmode="numeric"></span></label>
+            <label><span data-t="forma">Forma</span>
+              <span><select name="forma">
+                <option value="tondo" data-t="tondo">Tonda</option>
+                <option value="rettangolare" data-t="rettangolare">Rettangolare</option>
+              </select></span></label>
+            <label id="campoDiametro"><span data-t="diametro">Diametro</span>
+              <span><input name="diametro" inputmode="decimal"> cm</span></label>
+            <label id="campoLunghezza"><span data-t="lunghezza">Lunghezza</span>
+              <span><input name="lunghezza" inputmode="decimal"> cm</span></label>
+            <label id="campoLarghezza"><span data-t="larghezza">Larghezza</span>
+              <span><input name="larghezza" inputmode="decimal"> cm</span></label>
+          </div>
         </form>
         <p id="notaPezzi" class="nota"></p>
         <p id="totale" class="sottotitolo"></p>

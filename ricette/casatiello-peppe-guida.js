@@ -1,0 +1,86 @@
+// Dettaglio della ricetta «casatiello-peppe-guida»: quantità, dosi, note e procedimento (vedi ricette.js per le regole).
+DETTAGLI['casatiello-peppe-guida'] = {
+  contenitore: {
+    forma: 'tondo', diametro: 28,
+    nota: {
+      it: 'Le dosi della ricetta sono per uno stampo a ciambella (o un ruoto con un pirottino al centro) di almeno 28 cm.',
+      en: 'The recipe amounts are for a ring mould (or a round pan with a cup in the centre) of at least 28 cm.',
+      fr: 'Les doses de la recette sont pour un moule en couronne (ou un moule rond avec un ramequin au centre) d’au moins 28 cm.',
+      es: 'Las dosis de la receta son para un molde de rosca (o uno redondo con un vasito en el centro) de al menos 28 cm.',
+      de: 'Die Mengen gelten für eine Kranzform (oder eine runde Form mit einem Becher in der Mitte) von mindestens 28 cm.',
+    },
+  },
+  dosi: [
+    { nome: GRUPPI.impasto,
+      ingredienti: [['farina00', 1000], ['sale', 20], ['sugna', 200], ['lievitoBirra', 15], ['acqua', 600], ['zucchero']] },
+    { nome: GRUPPI.ripieno,
+      ingredienti: [['salumiMisti', 300], ['provolonePiccante'], ['pecorinoRomano'], ['pepe']] },
+    { nome: GRUPPI.finitura, fuoriPeso: true,
+      ingredienti: [['uova'], ['latte']] },
+  ],
+  notaDosi: {
+    it: 'Metà della sugna va nell’impasto e metà sulla pasta stesa; lo zucchero è un cucchiaino e l’acqua può variare. Sopra vanno 4 uova intere col guscio, più un uovo sbattuto con il latte per spennellare. Il provolone si può sostituire con un altro formaggio semiduro, come l’Asiago.',
+    en: 'Half the lard goes into the dough and half onto the rolled-out sheet; the sugar is one teaspoon and the water may vary. On top go 4 whole eggs in their shells, plus an egg beaten with milk for brushing. The provolone can be replaced with another semi-hard cheese such as Asiago.',
+    fr: 'La moitié du saindoux va dans la pâte et l’autre sur la pâte abaissée ; le sucre est une cuillère à café et l’eau peut varier. Sur le dessus, 4 œufs entiers dans leur coquille, plus un œuf battu avec du lait pour dorer. Le provolone peut être remplacé par un autre fromage mi-dur comme l’asiago.',
+    es: 'La mitad de la manteca va en la masa y la otra mitad sobre la masa estirada; el azúcar es una cucharadita y el agua puede variar. Encima van 4 huevos enteros con cáscara, más un huevo batido con leche para pintar. El provolone se puede sustituir por otro queso semicurado como el Asiago.',
+    de: 'Die Hälfte des Schmalzes kommt in den Teig, die andere auf die ausgerollte Platte; der Zucker ist ein Teelöffel, das Wasser kann schwanken. Obenauf kommen 4 ganze Eier in der Schale, dazu ein mit Milch verquirltes Ei zum Bestreichen. Der Provolone lässt sich durch einen anderen halbfesten Käse wie Asiago ersetzen.',
+  },
+  passi: [
+    {
+      it: 'Fare una fontana con la farina mescolata al sale e mettere al centro metà della sugna e lo zucchero.',
+      en: 'Make a well with the flour mixed with the salt and put half the lard and the sugar in the centre.',
+      fr: 'Faire une fontaine avec la farine mélangée au sel et mettre au centre la moitié du saindoux et le sucre.',
+      es: 'Hacer un volcán con la harina mezclada con la sal y poner en el centro la mitad de la manteca y el azúcar.',
+      de: 'Aus dem mit Salz gemischten Mehl einen Kranz formen und die Hälfte des Schmalzes und den Zucker in die Mitte geben.',
+    },
+    {
+      it: 'Sciogliere il lievito in due terzi dell’acqua tiepida e versarla poco alla volta; aggiungere il resto dell’acqua e impastare finché la pasta si incorda ma resta un po’ tenera, liscia e omogenea.',
+      en: 'Dissolve the yeast in two thirds of the lukewarm water and add it gradually; add the rest of the water and knead until the dough comes together but stays a little soft, smooth and even.',
+      fr: 'Dissoudre la levure dans les deux tiers de l’eau tiède et l’ajouter peu à peu ; ajouter le reste de l’eau et pétrir jusqu’à ce que la pâte se corde tout en restant un peu molle, lisse et homogène.',
+      es: 'Disolver la levadura en dos tercios del agua tibia y añadirla poco a poco; agregar el resto del agua y amasar hasta que la masa ligue pero quede algo tierna, lisa y homogénea.',
+      de: 'Die Hefe in zwei Dritteln des lauwarmen Wassers auflösen und nach und nach zugeben; das restliche Wasser zufügen und kneten, bis der Teig bindet, aber etwas weich, glatt und gleichmäßig bleibt.',
+    },
+    {
+      it: 'Mettere in una ciotola unta, coprire e lasciar raddoppiare: almeno un’ora, secondo l’ambiente.',
+      en: 'Put in an oiled bowl, cover and let it double: at least an hour, depending on the room.',
+      fr: 'Mettre dans un saladier huilé, couvrir et laisser doubler : au moins une heure, selon la pièce.',
+      es: 'Poner en un bol aceitado, tapar y dejar que doble: al menos una hora, según el ambiente.',
+      de: 'In eine geölte Schüssel geben, abdecken und auf das Doppelte gehen lassen: mindestens eine Stunde, je nach Raum.',
+    },
+    {
+      it: 'Tagliare a pezzettoni i salumi e grattugiare il pecorino. Stendere l’impasto in un rettangolo spesso circa 1 cm, tenendone da parte 50–100 g per le uova.',
+      en: 'Cut the cured meats into chunks and grate the pecorino. Roll the dough into a rectangle about 1 cm thick, keeping 50–100 g aside for the eggs.',
+      fr: 'Couper la charcuterie en gros morceaux et râper le pecorino. Abaisser la pâte en rectangle d’environ 1 cm, en gardant 50 à 100 g pour les œufs.',
+      es: 'Cortar los embutidos en trozos grandes y rallar el pecorino. Estirar la masa en un rectángulo de 1 cm aprox., reservando 50–100 g para los huevos.',
+      de: 'Die Wurst in grobe Stücke schneiden und den Pecorino reiben. Den Teig zu einem etwa 1 cm dicken Rechteck ausrollen und 50–100 g für die Eier zurückbehalten.',
+    },
+    {
+      it: 'Spennellare la pasta con la sugna rimasta, distribuire salumi, provolone, pecorino e molto pepe, e arrotolare dal lato lungo senza lasciare vuoti d’aria.',
+      en: 'Brush the dough with the remaining lard, scatter the meats, provolone, pecorino and plenty of pepper, and roll up from the long side without leaving air pockets.',
+      fr: 'Badigeonner la pâte avec le reste du saindoux, répartir charcuterie, provolone, pecorino et beaucoup de poivre, et rouler depuis le grand côté sans laisser de poches d’air.',
+      es: 'Untar la masa con la manteca restante, repartir embutidos, provolone, pecorino y mucha pimienta, y enrollar por el lado largo sin dejar huecos de aire.',
+      de: 'Den Teig mit dem restlichen Schmalz bestreichen, Wurst, Provolone, Pecorino und reichlich Pfeffer verteilen und von der Längsseite ohne Luftlöcher aufrollen.',
+    },
+    {
+      it: 'Mettere il rotolo nello stampo a ciambella unto di sugna e infarinato, e fissare sopra le uova intere con croci di impasto. Coprire e lasciar lievitare di nuovo.',
+      en: 'Place the roll in the ring mould greased with lard and floured, and fix the whole eggs on top with crosses of dough. Cover and let it rise again.',
+      fr: 'Mettre le rouleau dans le moule en couronne graissé au saindoux et fariné, et fixer dessus les œufs entiers avec des croix de pâte. Couvrir et laisser lever à nouveau.',
+      es: 'Poner el rollo en el molde de rosca untado con manteca y enharinado, y fijar encima los huevos enteros con cruces de masa. Tapar y dejar fermentar de nuevo.',
+      de: 'Die Rolle in die mit Schmalz gefettete, bemehlte Kranzform legen und die ganzen Eier mit Teigkreuzen obenauf befestigen. Abdecken und erneut gehen lassen.',
+    },
+    {
+      it: 'Spennellare con uovo sbattuto e latte e cuocere a 170 °C per circa 50 minuti; dopo 40 minuti provare con uno stecchino, che deve uscire asciutto.',
+      en: 'Brush with egg beaten with milk and bake at 170 °C for about 50 minutes; after 40 minutes test with a toothpick, which should come out dry.',
+      fr: 'Badigeonner d’œuf battu avec du lait et cuire à 170 °C environ 50 minutes ; après 40 minutes, vérifier avec un cure-dent, qui doit ressortir sec.',
+      es: 'Pintar con huevo batido y leche y hornear a 170 °C unos 50 minutos; a los 40 minutos probar con un palillo, que debe salir seco.',
+      de: 'Mit Ei und Milch bestreichen und bei 170 °C etwa 50 Minuten backen; nach 40 Minuten mit einem Zahnstocher prüfen, der trocken herauskommen muss.',
+    },
+    {
+      it: 'Dopo 10 minuti dall’uscita dal forno capovolgere lo stampo e lasciar raffreddare fuori dalla teglia.',
+      en: 'Ten minutes after taking it out, turn the mould over and let it cool out of the tin.',
+      fr: 'Dix minutes après la sortie du four, retourner le moule et laisser refroidir hors du moule.',
+      es: 'A los 10 minutos de sacarlo, darle la vuelta al molde y dejar enfriar fuera de él.',
+      de: 'Zehn Minuten nach dem Backen die Form stürzen und außerhalb abkühlen lassen.',
+    },
+  ],
+};
